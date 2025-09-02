@@ -8,8 +8,6 @@ import {
   TrendingUp,
   Settings
 } from "lucide-react";
-import { UserMenu } from "./UserMenu";
-import { useAuth } from "@/contexts/AuthContext";
 
 interface SidebarProps {
   activeSection: string;
@@ -25,28 +23,21 @@ const menuItems = [
 ];
 
 export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
-  const { user } = useAuth();
-
   return (
     <div className="w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 z-10">
       <div className="p-6 border-b border-gray-200">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <BarChart3 className="h-8 w-8 text-blue-600" />
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">Customer Success</h1>
-              <p className="text-sm text-gray-500">Sistema iuli</p>
-            </div>
+        <div className="flex items-center space-x-2">
+          <BarChart3 className="h-8 w-8 text-blue-600" />
+          <div>
+            <h1 className="text-xl font-bold text-gray-900">Customer Success</h1>
+            <p className="text-sm text-gray-500">Sistema iuli</p>
           </div>
-          <UserMenu />
         </div>
         
-        {user && (
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-            <p className="text-xs text-blue-700 font-medium">Logado como:</p>
-            <p className="text-sm text-blue-800 truncate">{user.name}</p>
-          </div>
-        )}
+        <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+          <p className="text-xs text-blue-700 font-medium">Acesso Direto</p>
+          <p className="text-sm text-blue-800">Sistema Ativo</p>
+        </div>
       </div>
       
       <nav className="mt-6">
